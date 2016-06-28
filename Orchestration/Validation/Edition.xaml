@@ -1,0 +1,45 @@
+﻿<Window x:Class="Validation.Edition"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edition Utilisateur" Height="220" Width="240" DataContext="{Binding Main, Mode=OneWay, Source={StaticResource Locator}}">
+	<Window.Resources>
+		<Style x:Key="ValidationTextBox" TargetType="TextBox">
+			<Style.Triggers>
+				<Trigger Property="Validation.HasError" Value="True">
+					<Trigger.Setters>
+						<Setter Property="ToolTip" 
+                                Value="{Binding RelativeSource={RelativeSource Self},Path=(Validation.Errors)[0].ErrorContent}"/>
+					</Trigger.Setters>
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+		<Style x:Key="ValidationCheckBox" TargetType="CheckBox">
+			<Style.Triggers>
+				<Trigger Property="Validation.HasError" Value="True">
+					<Trigger.Setters>
+						<Setter Property="ToolTip" 
+                                Value="{Binding RelativeSource={RelativeSource Self},Path=(Validation.Errors)[0].ErrorContent}"/>
+					</Trigger.Setters>
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+	</Window.Resources>
+    <StackPanel Margin="5">
+    	<TextBlock TextWrapping="Wrap" Text="Nom"/>
+        <TextBox TextWrapping="Wrap" Text="{Binding Nom, Mode=TwoWay, ValidatesOnExceptions=True}" 
+                 Margin="10,0,0,0" Style="{StaticResource ValidationTextBox}"/>
+    	<TextBlock TextWrapping="Wrap" Text="Prénom"/>
+        <TextBox TextWrapping="Wrap" Text="{Binding Prenom, Mode=TwoWay, ValidatesOnExceptions=True}" 
+                 Margin="10,0,0,0" 
+			Style="{StaticResource ValidationTextBox}"/>
+    	<TextBlock TextWrapping="Wrap" Text="Age"/>
+        <TextBox TextWrapping="Wrap" Text="{Binding Age, Mode=TwoWay, ValidatesOnExceptions=True}" 
+                 Margin="10,0,0,0" Style="{StaticResource ValidationTextBox}"/>
+        <TextBlock TextWrapping="Wrap" Text="Majeur ?"/>
+        <CheckBox IsChecked="{Binding EstMajeur, Mode=TwoWay, ValidatesOnExceptions=True}" 
+                  Margin="10,0,0,0" Style="{StaticResource ValidationCheckBox}"/>
+        <TextBlock TextWrapping="Wrap" Text="Adresse"/>
+        <TextBox TextWrapping="Wrap" Text="{Binding Adresse, Mode=TwoWay, ValidatesOnExceptions=True}" 
+                 Margin="10,0,0,0" Style="{StaticResource ValidationTextBox}"/>
+    </StackPanel>
+</Window>

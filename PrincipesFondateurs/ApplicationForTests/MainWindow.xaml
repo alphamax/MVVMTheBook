@@ -1,0 +1,24 @@
+﻿<Window x:Class="ApplicationForTests.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="400" Width="252.787">
+    <Grid DataContext="{Binding Main, Mode=OneWay, Source={StaticResource Locator}}">
+        <Border BorderBrush="Black" BorderThickness="1" Margin="5" Padding="5" CornerRadius="3">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap" Text="Ordoner une liste" TextDecorations="Underline"/>
+                <TextBlock TextWrapping="Wrap" Text="Nombre d'éléments" TextDecorations="{x:Null}" Margin="0,5,0,0"/>
+                <TextBox Height="23" TextWrapping="Wrap" Text="{Binding NbElement, Mode=TwoWay}" Margin="10,0,0,0"/>
+                <Button Content="Calculer" HorizontalAlignment="Center" Margin="0,5,0,0" Command="{Binding CalculCommand, Mode=OneWay}"/>
+                <StackPanel Margin="0,3,0,0">
+                    <RadioButton Content="Par la méthode Sort" GroupName="Nombre" IsChecked="{Binding SortFlag, Mode=TwoWay}"/>
+                    <RadioButton Content="Par la méthode OrderBy" GroupName="Nombre" IsChecked="{Binding OrderByFlag, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock TextWrapping="Wrap" Text="Temps écoulé : "/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding MillisecondesEcoulees, StringFormat=N0}"/>
+                    <TextBlock TextWrapping="Wrap" Text=" ms"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:GlassPane" x:Class="GlassPane.MainWindow"
+        Title="MainWindow" Height="350" Width="525">
+	<Grid DataContext="{Binding Main, Mode=OneWay, Source={StaticResource Locator}}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+        
+		<local:WaitControl IsLoading="{Binding EnChargement, Mode=OneWay}">
+			<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+				<TextBlock TextWrapping="Wrap" Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."/>
+				<Button Content="Lorem Ipsum" Width="75"/>
+			</StackPanel>
+		</local:WaitControl>
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+			<Button Content="Simuler le lancement d'un service" Margin="0,0,0,5" Command="{Binding LancerCommand, Mode=OneWay}"/>
+			<Button Content="Simuler la fin d'un service" Margin="0,0,0,5" Command="{Binding StopperCommand, Mode=OneWay}"/>
+			<Button Content="Simuler un lancement multiple" Margin="0,0,0,5" Command="{Binding LancerMultipleCommand, Mode=OneWay}"/>
+		</StackPanel>
+        
+	</Grid>
+</Window>

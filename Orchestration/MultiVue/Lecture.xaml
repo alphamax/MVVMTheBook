@@ -1,0 +1,16 @@
+﻿<Window x:Class="MultiVue.Lecture"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Consultation Utilisateur" Height="160" Width="240" DataContext="{Binding Main, Mode=OneWay, Source={StaticResource Locator}}">
+    <StackPanel Margin="5">
+    	<StackPanel Margin="5,0,-5,0" Orientation="Horizontal">
+    		<TextBlock TextWrapping="Wrap" Text="{Binding Nom}"/>
+    		<TextBlock TextWrapping="Wrap" Text=","/>
+    		<TextBlock TextWrapping="Wrap" Text="{Binding Prenom}" Margin="3,0,0,0"/>
+    	</StackPanel>
+    	<StackPanel Margin="5,0,-5,0" Orientation="Horizontal">
+    		<TextBlock TextWrapping="Wrap" Text="Adresse :"/>
+    		<TextBlock TextWrapping="Wrap" Text="{Binding Adresse}" Margin="3,0,0,0"/>
+		</StackPanel>
+    </StackPanel>
+</Window>

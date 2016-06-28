@@ -1,0 +1,16 @@
+﻿<Window x:Class="Tri.TriWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tri en mémoire" Height="375" Width="240" DataContext="{Binding Main, Mode=OneWay, Source={StaticResource Locator}}">
+    <Grid Margin="5">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="20"/>
+    		<RowDefinition Height="20"/>
+    		<RowDefinition Height="*"/>
+    	</Grid.RowDefinitions>
+		<TextBlock TextWrapping="Wrap" Text="Recherche"/>
+		<TextBox TextWrapping="Wrap" Text="{Binding ChampRecherche, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+				Grid.Row="1" Margin="10,0,0,0"/>
+		<ListBox Grid.Row="2" ItemsSource="{Binding TousLesNomsFiltres}"/>
+	</Grid>
+</Window>
